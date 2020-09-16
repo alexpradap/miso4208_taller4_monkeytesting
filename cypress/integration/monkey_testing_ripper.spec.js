@@ -22,6 +22,15 @@ function randomAction(monkeys) {
         return Math.floor(Math.random() * (max - min)) + min;
     };
 
+    function getRandomStr(length) {
+        let randomStr = '';
+        let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for (let i = 0; i < length; i++) {
+           randomStr += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return randomStr;
+     }
+
     let selectors = ['a', 'button', 'select', 'input[type=text], input[type=search]'];
     randomEvents(selectors, monkeys).forEach(selector => {
         if (selector == 'a') {
@@ -74,7 +83,7 @@ function randomAction(monkeys) {
                     cy.get(selector).then($events => {
                         var randomEvent = $events.get(getRandomInt(0, $events.length));
                         cy.wrap(randomEvent).clear();
-                        cy.wrap(randomEvent).type('test');
+                        cy.wrap(randomEvent).type(getRandomStr(getRandomInt(1,48)) + '{enter}');
                         cy.wait(500);
                     });
                 }
