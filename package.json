@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/alexpradap/miso4208_taller4_monkeytesting#readme",
   "devDependencies": {
-    "cypress": "^5.2.0"
+    "cypress": "^5.2.0",
+    "express": "^4.17.1"
   }
 }

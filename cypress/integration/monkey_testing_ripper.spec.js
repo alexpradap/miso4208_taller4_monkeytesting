@@ -31,7 +31,7 @@ function randomAction(monkeys) {
         return randomStr;
      }
 
-    let selectors = ['a', 'button', 'select', 'input[type=text], input[type=search]'];
+    let selectors = ['a', 'button', 'input[type=text], input[type=search]'];
     randomEvents(selectors, monkeys).forEach(selector => {
         if (selector == 'a') {
             cy.get('body').then($body => {
